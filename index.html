@@ -69,10 +69,8 @@ footer{border-top:1px solid var(--line);padding:42px 0 24px}.footer-top{display:
 <section class="section booking-section" id="reserve"><div class="container booking-grid">
 <div class="booking-copy reveal"><div class="eyebrow">Make it a meal</div><h2>Your table<br>is waiting.</h2><p>Planning a family meal or catching up with friends? Send a reservation request and the restaurant can follow up to confirm availability.</p>
 <div class="contact-points"><div class="contact-point"><small>Visit us</small><strong>Balaramapuram, Thiruvananthapuram</strong></div><div class="contact-point"><small>Call / WhatsApp</small><strong>+91 99477 52218</strong></div><div class="contact-point"><small>Opening hours</small><strong>Daily · 11:00 AM – 12:00 AM</strong></div></div></div>
-<form class="booking-form reveal" name="reservation" id="bookingForm" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-<input type="hidden" name="form-name" value="reservation">
-<p hidden><label>Do not fill this out: <input name="bot-field"></label></p>
-<h3>Request a table</h3><p>Share your details below. This form needs to be deployed and configured before it can deliver real submissions.</p>
+<form class="booking-form reveal" name="reservation" id="bookingForm" method="POST" action="https://formspree.io/f/mppqlyjn">
+<h3>Request a table</h3><p>Share your details below. Your reservation request will be sent to the restaurant for follow-up.</p>
 <div class="form-grid">
 <div class="field"><label for="guestName">Full name</label><input id="guestName" name="name" autocomplete="name" placeholder="Your name" required></div>
 <div class="field"><label for="guestPhone">Phone number</label><input id="guestPhone" name="phone" type="tel" autocomplete="tel" placeholder="+91 ..." required></div>
@@ -102,8 +100,7 @@ document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 const topButton=document.getElementById('toTop');window.addEventListener('scroll',()=>topButton.classList.toggle('show',window.scrollY>600));
 document.getElementById('year').textContent=new Date().getFullYear();
 const dateInput=document.getElementById('date');const now=new Date();dateInput.min=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().split('T')[0];
-/* This form is prepared for Netlify Forms. It does not send/store submissions when opened locally.
-   After deployment: enable form detection, redeploy, verify the form is listed, configure notifications, and submit a test. */
+// Reservation form posts to Formspree. Confirm your email in Formspree and enable email notifications.
 </script>
 </body>
 </html>
